@@ -5,10 +5,12 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.example.constent.EMConstant;
 import com.example.dto.EmployeManagementDTO;
 import com.example.entity.EmployeeManagement;
 import com.example.repsitory.EmployeeManagementRepository;
@@ -63,7 +65,7 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
 
 		while (iterator.hasNext()) {
 			EmployeeManagement employeeManagement = iterator.next();
-			if (employeeManagement.getIsActive().equalsIgnoreCase("Y")){
+			if (employeeManagement.getIsActive().equalsIgnoreCase("Y")) {
 				shortingActiveData.add(employeeManagement);
 			}
 		}
@@ -116,6 +118,16 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
 		}
 
 		return null;
+	}
+
+	@Override
+	public List<EmployeeManagement> findAllEmployee1() {
+		List<EmployeeManagement> findEmployeeManagements = employeeManagementRepository.findAll();
+		List<EmployeeManagement> findOnlyActiveEmployeeManagements = findEmployeeManagements.stream()
+				.filter(findOnlyActiveData -> findOnlyActiveData.getIsActive().equalsIgnoreCase(EMConstant.IS_ACTIVE))
+				.collect(Collectors.toList());
+
+		return findOnlyActiveEmployeeManagements;
 	}
 
 }

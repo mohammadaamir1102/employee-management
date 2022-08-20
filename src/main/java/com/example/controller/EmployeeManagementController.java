@@ -30,10 +30,18 @@ public class EmployeeManagementController {
 
 	}
 
+	// return DTO not Entity
 	@GetMapping("/findAllEmployee")
 	public List<EmployeManagementDTO> findAllEmployee() {
 		return employeeManagementService.findAllEmployee();
 
+	}
+	
+	//return entity not DTO
+	//notes  (Return ENTITY is not a good way)
+	@GetMapping("/findAllEmployee1")
+	public List<EmployeeManagement> findAllEmpoEmployeeManagements(){
+		return employeeManagementService.findAllEmployee1();
 	}
 
 	@PutMapping("/update")

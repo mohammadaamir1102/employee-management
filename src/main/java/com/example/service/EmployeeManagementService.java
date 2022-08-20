@@ -11,6 +11,7 @@ public interface EmployeeManagementService {
 	List<EmployeManagementDTO> findAllEmployee();
 	List<EmployeManagementDTO> getIdEmployee(EmployeManagementDTO employeManagementDTO); 
 	EmployeManagementDTO findEmployeManagementById(Long id);
+	List<EmployeeManagement> findAllEmployee1();
 		
 	
 
