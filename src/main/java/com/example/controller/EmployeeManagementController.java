@@ -1,0 +1,50 @@
+package com.example.controller;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.example.dto.EmployeManagementDTO;
+import com.example.entity.EmployeeManagement;
+import com.example.service.EmployeeManagementService;
+
+
+@RestController
+@RequestMapping("/employeeManagement")
+public class EmployeeManagementController {
+	
+	
+	@Autowired
+	private EmployeeManagementService employeeManagementService;
+
+	@PostMapping("/save")
+	public EmployeeManagement saveEmployeeManagement(@RequestBody EmployeeManagement employeeManagement) {
+		return employeeManagementService.saveEmployeeManagement(employeeManagement);
+
+	}
+
+	@GetMapping("/findAllEmployee")
+	public List<EmployeManagementDTO> findAllEmployee() {
+		return employeeManagementService.findAllEmployee();
+
+	}
+
+	@PutMapping("/update")
+	List<EmployeManagementDTO> getIdEmployee(EmployeManagementDTO employeManagementDTO) {
+		return employeeManagementService.getIdEmployee(employeManagementDTO);
+
+	}
+
+
+	@GetMapping("/findEmployee/{id}")
+	public EmployeManagementDTO findEmployeManagementById(@PathVariable Long id){
+		return employeeManagementService.findEmployeManagementById(id);
+	}
+}
