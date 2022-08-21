@@ -98,7 +98,8 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
 	public EmployeManagementDTO findEmployeManagementById(Long id) {
 
 		try {
-			Optional<EmployeeManagement> employeeManagementOptional = employeeManagementRepository.findById(id);
+			Optional<EmployeeManagement> employeeManagementOptional = employeeManagementRepository
+					.findByIdAndIsActive(id, EMConstant.IS_ACTIVE);
 			EmployeeManagement employeeManagement = employeeManagementOptional.get();
 
 			if (employeeManagementOptional.isPresent()) {
