@@ -131,4 +131,21 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
 		return findOnlyActiveEmployeeManagements;
 	}
 
+	@Override
+	public List<EmployeeManagement> findByFirstNameAndLastName(String firstNameString, String lastName) {
+		List<EmployeeManagement> findByFirstNameAndLastName = employeeManagementRepository
+				.findByFirstNameAndLastName(firstNameString, lastName);
+		if (Objects.nonNull(findByFirstNameAndLastName)) {
+			return findByFirstNameAndLastName;
+		}
+		return null;
+	}
+
+	@Override
+	public List<EmployeeManagement> findByIdIn(List<Long> findByIdInDTOs) {
+		List<EmployeeManagement> findByIdIn = employeeManagementRepository.findByIdIn(findByIdInDTOs);
+		System.out.println(findByIdIn);
+		return findByIdIn;
+	}
+
 }

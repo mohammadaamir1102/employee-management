@@ -12,15 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.example.dto.EmployeManagementDTO;
+import com.example.dto.FindByFirstNameAndLastNameDTO;
 import com.example.entity.EmployeeManagement;
 import com.example.service.EmployeeManagementService;
-
 
 @RestController
 @RequestMapping("/employeeManagement")
 public class EmployeeManagementController {
-	
-	
+
 	@Autowired
 	private EmployeeManagementService employeeManagementService;
 
@@ -36,11 +35,11 @@ public class EmployeeManagementController {
 		return employeeManagementService.findAllEmployee();
 
 	}
-	
-	//return entity not DTO
-	//notes  (Return ENTITY is not a good way)
+
+	// return entity not DTO
+	// notes (Return ENTITY is not a good way)
 	@GetMapping("/findAllEmployee1")
-	public List<EmployeeManagement> findAllEmpoEmployeeManagements(){
+	public List<EmployeeManagement> findAllEmpoEmployeeManagements() {
 		return employeeManagementService.findAllEmployee1();
 	}
 
@@ -50,9 +49,20 @@ public class EmployeeManagementController {
 
 	}
 
-
 	@GetMapping("/findEmployee/{id}")
-	public EmployeManagementDTO findEmployeManagementById(@PathVariable Long id){
+	public EmployeManagementDTO findEmployeManagementById(@PathVariable Long id) {
 		return employeeManagementService.findEmployeManagementById(id);
+	}
+
+	@PostMapping("/findByFirstNameAndLastName")
+	public List<EmployeeManagement> findByFirstNameAndLastName(
+			@RequestBody FindByFirstNameAndLastNameDTO findByFirstNameAndLastNameDTO) {
+		return employeeManagementService.findByFirstNameAndLastName(findByFirstNameAndLastNameDTO.getFirstName(),
+				findByFirstNameAndLastNameDTO.getLastName());
+	}
+
+	@PostMapping("/findByIdIn")
+	public List<EmployeeManagement> findByIdIn(@RequestBody List<Long> findByIdInDTOs) {
+		return employeeManagementService.findByIdIn(findByIdInDTOs);
 	}
 }

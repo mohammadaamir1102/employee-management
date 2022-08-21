@@ -1,5 +1,6 @@
 package com.example.repsitory;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -10,4 +11,6 @@ import com.example.entity.EmployeeManagement;
 public interface EmployeeManagementRepository extends JpaRepository<EmployeeManagement,Long>{
 
 	Optional<EmployeeManagement> findByIdAndIsActive(Long id, String isActive);
+	List<EmployeeManagement> findByFirstNameAndLastName(String firstName, String lastName);
+	List<EmployeeManagement> findByIdIn(List<Long> ids);
 }
