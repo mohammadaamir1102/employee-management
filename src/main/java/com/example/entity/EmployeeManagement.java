@@ -35,6 +35,7 @@ public class EmployeeManagement {
 		this.address = address;
 		this.contact = contact;
 		this.isActive = isActive;
+
 	}
 
 	public Long getId() {
