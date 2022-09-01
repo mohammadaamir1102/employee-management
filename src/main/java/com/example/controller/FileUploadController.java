@@ -21,7 +21,7 @@ public class FileUploadController {
 	@Autowired
 	private FileStorageService fileStorageService;
 
-	@PostMapping("/upload-file")
+	@PostMapping("/")
 	public ResponseEntity<ResponseMessage> uploadFile(@RequestParam("file") MultipartFile file) {
 		String message = "";
 
