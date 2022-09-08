@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.dto.EmployeManagementDTO;
+import com.example.dto.EmployeeManagementDTO;
 import com.example.dto.FindByFirstNameAndLastNameDTO;
 import com.example.entity.EmployeeManagement;
 import com.example.service.EmployeeManagementService;
@@ -31,7 +31,7 @@ public class EmployeeManagementController {
 
 	// return DTO not Entity
 	@GetMapping("/findAllEmployee")
-	public List<EmployeManagementDTO> findAllEmployee() {
+	public List<EmployeeManagementDTO> findAllEmployee() {
 		return employeeManagementService.findAllEmployee();
 
 	}
@@ -44,13 +44,13 @@ public class EmployeeManagementController {
 	}
 
 	@PutMapping("/update")
-	List<EmployeManagementDTO> getIdEmployee(EmployeManagementDTO employeManagementDTO) {
+	List<EmployeeManagementDTO> getIdEmployee(EmployeeManagementDTO employeManagementDTO) {
 		return employeeManagementService.getIdEmployee(employeManagementDTO);
 
 	}
 
 	@GetMapping("/findEmployee/{id}")
-	public EmployeManagementDTO findEmployeManagementById(@PathVariable Long id) {
+	public EmployeeManagementDTO findEmployeManagementById(@PathVariable Long id) {
 		return employeeManagementService.findEmployeManagementById(id);
 	}
 

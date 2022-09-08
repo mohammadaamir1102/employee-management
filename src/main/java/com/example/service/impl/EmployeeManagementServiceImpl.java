@@ -11,8 +11,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.constent.EMConstant;
-import com.example.dto.EmployeManagementDTO;
+import com.example.dto.EmployeeManagementDTO;
 import com.example.entity.EmployeeManagement;
+import com.example.mapper.EmployeeManagementMapper;
 import com.example.repsitory.EmployeeManagementRepository;
 import com.example.service.EmployeeManagementService;
 
@@ -21,13 +22,16 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
 	@Autowired
 	private EmployeeManagementRepository employeeManagementRepository;
 
+	@Autowired
+	private EmployeeManagementMapper employeeManagementMapper;
+
 	@Override
 	public EmployeeManagement saveEmployeeManagement(EmployeeManagement employeeManagement) {
 		return employeeManagementRepository.save(employeeManagement);
 	}
 
 	@Override
-	public List<EmployeManagementDTO> findAllEmployee() {
+	public List<EmployeeManagementDTO> findAllEmployee() {
 
 		List<EmployeeManagement> getAllEmployeeManagements = employeeManagementRepository.findAll();
 //		List<EmployeeManagement> modifiedRecordsEmployeeManagements = getAllEmployeeManagements.stream()
@@ -36,12 +40,12 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
 		List<EmployeeManagement> findOnlyActiveData = findAllActiveRecordsEmployeeManagements(
 				getAllEmployeeManagements);
 
-		List<EmployeManagementDTO> employeManagementDTOs = new ArrayList<>();
+		List<EmployeeManagementDTO> employeManagementDTOs = new ArrayList<>();
 
 		if (Objects.nonNull(getAllEmployeeManagements)) {
 			for (EmployeeManagement employeeManagement : findOnlyActiveData) {
 
-				EmployeManagementDTO employeManagementDTO = new EmployeManagementDTO();
+				EmployeeManagementDTO employeManagementDTO = new EmployeeManagementDTO();
 				employeManagementDTO.setId(employeeManagement.getId());
 				employeManagementDTO.setFirstName(employeeManagement.getFirstName());
 				employeManagementDTO.setLastName(employeeManagement.getLastName());
@@ -74,10 +78,10 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
 	}
 
 	@Override
-	public List<EmployeManagementDTO> getIdEmployee(EmployeManagementDTO employeManagementDTO) {
+	public List<EmployeeManagementDTO> getIdEmployee(EmployeeManagementDTO employeManagementDTO) {
 		Optional<EmployeeManagement> employeeManagementOptional = employeeManagementRepository
 				.findById(employeManagementDTO.getId());
-		List<EmployeManagementDTO> employeManagementDTOs = new ArrayList<>();
+		List<EmployeeManagementDTO> employeManagementDTOs = new ArrayList<>();
 		if (Objects.nonNull(employeeManagementOptional)) {
 			EmployeeManagement employeeManagement = employeeManagementOptional.get();
 			employeeManagement.setFirstName(employeManagementDTO.getFirstName());
@@ -95,24 +99,16 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
 	}
 
 	@Override
-	public EmployeManagementDTO findEmployeManagementById(Long id) {
+	public EmployeeManagementDTO findEmployeManagementById(Long id) {
 
 		try {
 			Optional<EmployeeManagement> employeeManagementOptional = employeeManagementRepository
 					.findByIdAndIsActive(id, EMConstant.IS_ACTIVE);
+			if(employeeManagementOptional.isPresent()) {
 			EmployeeManagement employeeManagement = employeeManagementOptional.get();
-
-			if (employeeManagementOptional.isPresent()) {
-				EmployeManagementDTO employeManagementDTO = new EmployeManagementDTO();
-				employeManagementDTO.setId(employeeManagement.getId());
-				employeManagementDTO.setFirstName(employeeManagement.getFirstName());
-				employeManagementDTO.setLastName(employeeManagement.getLastName());
-				employeManagementDTO.setEmail(employeeManagement.getEmail());
-				employeManagementDTO.setContact(employeeManagement.getContact());
-				employeManagementDTO.setCity(employeeManagement.getCity());
-				employeManagementDTO.setAddress(employeeManagement.getAddress());
-				employeManagementDTO.setIsActive(employeeManagement.getIsActive());
-				return employeManagementDTO;
+			EmployeeManagementDTO employeeManagementToEmpployeeManagementDto = employeeManagementMapper
+					.employeeManagementToEmpployeeManagementDto(employeeManagement);
+			return employeeManagementToEmpployeeManagementDto;
 			}
 		} catch (Exception e) {
 			e.printStackTrace();

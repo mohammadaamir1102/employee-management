@@ -1,6 +1,6 @@
 package com.example.dto;
 
-public class EmployeManagementDTO {
+public class EmployeeManagementDTO {
 	private Long id;
 	private String firstName;
 	private String lastName;
@@ -10,12 +10,12 @@ public class EmployeManagementDTO {
 	private String contact;
 	private String isActive;
 
-	public EmployeManagementDTO() {
+	public EmployeeManagementDTO() {
 		super();
 
 	}
 
-	public EmployeManagementDTO(Long id, String firstName, String lastName, String email, String city, String address,
+	public EmployeeManagementDTO(Long id, String firstName, String lastName, String email, String city, String address,
 			String contact, String isActive) {
 		super();
 		this.id = id;
