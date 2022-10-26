@@ -1,10 +1,13 @@
 package com.example.entity;
 
+import com.example.constent.RegexConstant;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "employee_management")
@@ -12,8 +15,13 @@ public class EmployeeManagement {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
+	@NotBlank(message = "First Name is required & ALPHANUMERIC ONLY !")
+	@Pattern(regexp = RegexConstant.ALPHANUMERIC_ONLY)
 	private String firstName;
+	@NotBlank(message = "First Name is required & ALPHANUMERIC ONLY !")
+	@Pattern(regexp = RegexConstant.ALPHANUMERIC_ONLY)
 	private String lastName;
+	@Pattern(regexp = RegexConstant.EMAIL, message = "Mail Should be Proper !")
 	private String email;
 	private String city;
 	private String address;

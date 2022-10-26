@@ -16,6 +16,8 @@ import com.example.dto.FindByFirstNameAndLastNameDTO;
 import com.example.entity.EmployeeManagement;
 import com.example.service.EmployeeManagementService;
 
+import javax.validation.Valid;
+
 @RestController
 @RequestMapping("/employeeManagement")
 public class EmployeeManagementController {
@@ -24,7 +26,7 @@ public class EmployeeManagementController {
 	private EmployeeManagementService employeeManagementService;
 
 	@PostMapping("/save")
-	public EmployeeManagement saveEmployeeManagement(@RequestBody EmployeeManagement employeeManagement) {
+	public EmployeeManagement saveEmployeeManagement(@RequestBody @Valid EmployeeManagement employeeManagement) {
 		return employeeManagementService.saveEmployeeManagement(employeeManagement);
 
 	}
