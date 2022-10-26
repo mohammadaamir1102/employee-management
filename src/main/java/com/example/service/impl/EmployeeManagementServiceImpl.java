@@ -81,6 +81,8 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
 	public List<EmployeeManagementDTO> getIdEmployee(EmployeeManagementDTO employeManagementDTO) {
 		Optional<EmployeeManagement> employeeManagementOptional = employeeManagementRepository
 				.findById(employeManagementDTO.getId());
+		String userName = getEmployeeUserName(employeManagementDTO.getId()).get().getFirstName();
+		System.out.println(userName);
 		List<EmployeeManagementDTO> employeManagementDTOs = new ArrayList<>();
 		if (Objects.nonNull(employeeManagementOptional)) {
 			EmployeeManagement employeeManagement = employeeManagementOptional.get();
@@ -115,6 +117,13 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
 		}
 
 		return null;
+	}
+
+	private Optional<EmployeeManagement> getEmployeeUserName(Long id) {
+		Optional<EmployeeManagement> employeeManagementOptional = employeeManagementRepository
+				.findByIdAndIsActive(id, EMConstant.IS_ACTIVE);
+		return Optional.ofNullable(employeeManagementOptional.get());
+		
 	}
 
 	@Override
