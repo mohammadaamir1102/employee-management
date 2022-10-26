@@ -15,17 +15,25 @@ public class EmployeeManagement {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@NotBlank(message = "First Name is required & ALPHANUMERIC ONLY !")
-	@Pattern(regexp = RegexConstant.ALPHANUMERIC_ONLY)
+	@NotBlank(message = "First Name is required & ALPHABETS ONLY !")
+	@Pattern(regexp = RegexConstant.ALPHABETS_ONLY)
 	private String firstName;
-	@NotBlank(message = "First Name is required & ALPHANUMERIC ONLY !")
-	@Pattern(regexp = RegexConstant.ALPHANUMERIC_ONLY)
+	@NotBlank(message = "Last Name is required & ALPHABETS ONLY !")
+	@Pattern(regexp = RegexConstant.ALPHABETS_ONLY)
 	private String lastName;
 	@Pattern(regexp = RegexConstant.EMAIL, message = "Mail Should be Proper !")
 	private String email;
+	@NotBlank(message = "City is required & ALPHABETS ONLY !")
+	@Pattern(regexp = RegexConstant.ALPHABETS_ONLY)
 	private String city;
+	@NotBlank(message = "Address is required & ALPHANUMERIC ONLY !")
+	@Pattern(regexp = RegexConstant.ALPHANUMERIC_ONLY)
 	private String address;
+	@NotBlank(message = "Contact is required & NUMBERS ONLY !")
+	@Pattern(regexp = RegexConstant.NUMBERS_ONLY)
 	private String contact;
+	@NotBlank(message = "isActive is required & ALPHABETS ONLY!")
+	@Pattern(regexp = RegexConstant.ALPHABETS_ONLY)
 	private String isActive;
 
 	public EmployeeManagement() {
