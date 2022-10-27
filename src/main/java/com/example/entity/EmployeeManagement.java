@@ -16,7 +16,7 @@ public class EmployeeManagement {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	@NotBlank(message = "First Name is required & ALPHABETS ONLY !")
-	@Pattern(regexp = RegexConstant.ALPHABETS_ONLY)
+	@Pattern(regexp = RegexConstant.ALPHABETS_ONLY, message = "use ALPHABETS ONLY")
 	private String firstName;
 	@NotBlank(message = "Last Name is required & ALPHABETS ONLY !")
 	@Pattern(regexp = RegexConstant.ALPHABETS_ONLY)
