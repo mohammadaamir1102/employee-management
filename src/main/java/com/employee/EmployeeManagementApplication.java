@@ -3,7 +3,9 @@ package com.employee;
 import com.employee.entity.EmployeeManagement;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
 import org.springframework.util.CollectionUtils;
+import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
 
@@ -23,6 +25,11 @@ public class EmployeeManagementApplication {
             return employeeManagements;
         }
         return null;
+    }
+
+    @Bean
+    public RestTemplate restTemplate(){
+        return new RestTemplate();
     }
 
 }
