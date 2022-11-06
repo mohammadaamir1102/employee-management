@@ -22,7 +22,6 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> getUser() {
         System.out.println("url is =" + URL);
-        ResponseEntity<User[]> response;
         List<User> users = null;
         try {
             User[] userResponse = restTemplate.getForObject(URL, User[].class);
