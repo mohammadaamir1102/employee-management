@@ -1,0 +1,16 @@
+Question :- what is @SpringBootApplication annotation?
+inside this annotation there is three annotations
+1-@EnableAutoConfiguration
+2-@ComponantScan
+3-@Configuration
+
+1-@EnableAutoConfiguration:-
+@EnableAutoConfiguration enable the automatic configuration based on the jar dependency.
+The dependency added inside the pom.xml
+
+2-@ComponantScan:-
+@ComponantScan will just scan the bean so that can it is visible to IOC container.
+
+3-@Configuration:-
+we use this annotation for java base configuration where we can define the bean definitions inside the class
+so that spring ioc container load it.
