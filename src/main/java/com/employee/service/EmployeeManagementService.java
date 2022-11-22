@@ -1,7 +1,9 @@
 package com.employee.service;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.employee.dto.EmployeeManagementContactDTO;
 import com.employee.dto.EmployeeManagementDTO;
 import com.employee.entity.EmployeeManagement;
 
@@ -24,4 +26,6 @@ public interface EmployeeManagementService {
     String deleteUserPermanently(Long id) throws Exception;
 
     String inActiveUser(Long id) throws Exception;
+
+    Optional<EmployeeManagement> getEmployeeBasedOnContact(EmployeeManagementContactDTO employeeManagementContactDTO);
 }

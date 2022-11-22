@@ -13,4 +13,7 @@ public interface EmployeeManagementRepository extends JpaRepository<EmployeeMana
 	Optional<EmployeeManagement> findByIdAndIsActive(Long id, String isActive);
 	List<EmployeeManagement> findByFirstNameAndLastName(String firstName, String lastName);
 	List<EmployeeManagement> findByIdIn(List<Long> ids);
+
+	Optional<EmployeeManagement> findByContactAndIsActive(String contact, String isActive);
+
 }

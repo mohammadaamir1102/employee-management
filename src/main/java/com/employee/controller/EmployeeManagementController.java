@@ -1,7 +1,9 @@
 package com.employee.controller;
 
 import java.util.List;
+import java.util.Optional;
 
+import com.employee.dto.EmployeeManagementContactDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -72,6 +74,11 @@ public class EmployeeManagementController {
     @DeleteMapping("/inActiveUser/{id}")
     public String inActiveUser(@PathVariable Long id) throws Exception {
         return employeeManagementService.inActiveUser(id);
+    }
+
+    @PostMapping("/getEmployeeByContactAndActivity")
+    public Optional<EmployeeManagement> getEmployeeBasedOnContact(@RequestBody EmployeeManagementContactDTO employeeManagementContactDTO){
+            return employeeManagementService.getEmployeeBasedOnContact(employeeManagementContactDTO);
     }
 
 }

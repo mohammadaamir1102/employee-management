@@ -14,3 +14,35 @@ The dependency added inside the pom.xml
 3-@Configuration:-
 we use this annotation for java base configuration where we can define the bean definitions inside the class
 so that spring ioc container load it.
+
+
+Question :-  Stereotype annotation
+@Component  : it is root annotation in spring boot
+@Service
+@RestController
+@Controller
+@Repository
+
+We can use @Component on the place of @Service, @RestController, @Controller,  @Repository,
+but we can not easily identify the role of classes
+
+@Question : - Spring core annotations?
+@Configuration
+@Bean
+@Autowired
+@Qualifier
+@Primary
+@Lazy
+@Value
+@PropertySource
+@ConfigurationProperties
+@Profile
+@Scope
+
+@Configuration & @Bean :- When I want to use java base configuration. it means we don't want handle the
+spring bean life cycle either using annotations or XML.
+Both annotation indicates the class can be used by IOC container as a source of bean definitions.
+
+@Lazy :- By default spring bean is eager loading, I mean if we define bean in our application then spring ioc
+         create the object by default, however it does not matter whether that bean is using or not,
+         which really increase the bean.

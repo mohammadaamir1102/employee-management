@@ -7,6 +7,7 @@ import java.util.Objects;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
+import com.employee.dto.EmployeeManagementContactDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -168,6 +169,17 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
         employeeManagement.setIsActive(EMConstant.IN_ACTIVE);
         employeeManagementRepository.save(employeeManagement);
         return "Employee id: " + id + " has been in active successfully !";
+    }
+
+    @Override
+    public Optional<EmployeeManagement> getEmployeeBasedOnContact(EmployeeManagementContactDTO employeeManagementContactDTO) {
+        Optional<EmployeeManagement> byContactAndIsActive = employeeManagementRepository.findByContactAndIsActive(employeeManagementContactDTO.getContact(),
+                employeeManagementContactDTO.getIsActive());
+        //here if got two record then got exception because optional is not LIST
+        if(byContactAndIsActive.isPresent()){
+            return byContactAndIsActive;
+        }
+        return Optional.empty();
     }
 
 
