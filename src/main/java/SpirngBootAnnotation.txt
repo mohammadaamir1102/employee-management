@@ -33,7 +33,7 @@ but we can not easily identify the role of classes
 @Qualifier
 @Primary
 @Lazy
-@Value
+@Value :-  when i want to use load some meta-data from the properties file then we can use this annotation.
 @PropertySource
 @ConfigurationProperties
 @Profile
@@ -45,4 +45,18 @@ Both annotation indicates the class can be used by IOC container as a source of 
 
 @Lazy :- By default spring bean is eager loading, I mean if we define bean in our application then spring ioc
          create the object by default, however it does not matter whether that bean is using or not,
-         which really increase the bean.
+         which really increase the heap.
+
+@PropertySource :- suppose that I have created a custom.properties files and want to read this file inside a particular
+                   controller or business layer then use this annotation on that particular class
+                   but, we have to tell the path like = @PropertySource("classpath:custom.properties")
+                   Note :- if we are not using then got IllegalArgumentException
+
+
+@Qualifier :- if we create two or multiple implementation classes of a single interface with all same overridden method
+              then we will get the error like ( required a single bean, but multiple were found)
+              for solving this issue we will have to use @Qualifier, or we can use @Primary
+
+              @Autowired
+              @Qualifier("employeeServiceImpl2")
+              private EmployeeService employeeService;

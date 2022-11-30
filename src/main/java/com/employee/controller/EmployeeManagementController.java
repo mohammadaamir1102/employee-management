@@ -5,6 +5,8 @@ import java.util.Optional;
 
 import com.employee.dto.EmployeeManagementContactDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.PropertySource;
 import org.springframework.web.bind.annotation.*;
 
 import com.employee.dto.EmployeeManagementDTO;
@@ -15,11 +17,18 @@ import com.employee.service.EmployeeManagementService;
 import javax.validation.Valid;
 
 @RestController
+@PropertySource("classpath:custom.properties")
 @RequestMapping("/employeeManagement")
 public class EmployeeManagementController {
 
     @Autowired
     private EmployeeManagementService employeeManagementService;
+
+    @Value("${developer-name}")
+    private String developerName;
+
+    @Value("${custom-properties}")
+    private String customProperties;
 
     @PostMapping("/save")
     public EmployeeManagement saveEmployeeManagement(@RequestBody @Valid EmployeeManagement employeeManagement) {
@@ -32,6 +41,8 @@ public class EmployeeManagementController {
     // return DTO not Entity
     @GetMapping("/findAllEmployee")
     public List<EmployeeManagementDTO> findAllEmployee() {
+        System.out.println("developer name is "+ developerName);
+        System.out.println("custom "+customProperties);
         return employeeManagementService.findAllEmployee();
 
     }

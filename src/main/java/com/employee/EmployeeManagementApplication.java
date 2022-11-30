@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.util.CollectionUtils;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @SpringBootApplication
@@ -16,6 +17,12 @@ public class EmployeeManagementApplication {
         SpringApplication.run(EmployeeManagementApplication.class, args);
         List<EmployeeManagement> employeeManagements = gettingListData();
         employeeManagements.forEach(System.err::println);
+
+        List<String> list = new ArrayList<>();
+        if(CollectionUtils.isEmpty(list)){
+            System.out.println("if block");
+        }
+
     }
 
     private static List<EmployeeManagement> gettingListData() {
