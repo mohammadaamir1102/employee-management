@@ -14,7 +14,8 @@ import java.util.List;
 public class  MindCraftCompany {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(generator = "companyIdSequence")
+    @SequenceGenerator(name = "companyIdSequence", sequenceName = "MindCraftCompany_companyId", allocationSize = 1)
     private Long companyId;
     private String companyName;
     private String companyAddress;

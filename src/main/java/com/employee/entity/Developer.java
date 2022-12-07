@@ -15,13 +15,12 @@ import java.sql.Timestamp;
 public class Developer {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(generator = "developerIdSequence")
+    @SequenceGenerator(name = "developerSequence", sequenceName = "Developer_developerId", allocationSize = 1)
     private Long developerId;
     private String developerName;
     private String developerAddress;
     @JsonFormat(pattern = "dd-MM-yyyy")
     private Timestamp developerDOB;
 
-    @ManyToOne
-    private MindCraftCompany mindCraftCompany;
 }
