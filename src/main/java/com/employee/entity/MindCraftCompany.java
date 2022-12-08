@@ -19,7 +19,7 @@ public class  MindCraftCompany {
     private Long companyId;
     private String companyName;
     private String companyAddress;
-    @OneToMany(targetEntity = Developer.class, cascade = CascadeType.ALL)
+    @OneToMany(targetEntity = Developer.class, cascade = CascadeType.ALL,fetch = FetchType.EAGER)
     @JoinColumn(name = "md_fk", referencedColumnName = "companyId")
     private List<Developer> developer;
 }
