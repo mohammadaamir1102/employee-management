@@ -14,3 +14,9 @@
         Callable   ->    call();
         Comparable ->    compareTo();
         Comparator ->    compare();
+
+2- Consumer interface?
+    it is a functional interface which is introduce in java 8
+    Consumer takes an object in input and produce a result
+    consumer function don't return any value because accept method return type is void
+    only one abstract method   accept();
