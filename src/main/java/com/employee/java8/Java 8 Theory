@@ -1,0 +1,16 @@
+1-Lambda Expression?
+ By the Lambda Expression we can represent an anonymous function
+ Anonymous means  Name less / Unknown
+ Anonymous function : Which method who don't have any name or modifier
+
+ Syntax: Parameter     Expression       Body
+            ()              ->          System.out.println("Aamir khan");
+
+ The Interface who contain only one abstract method but can have multiple default & static method
+ is called Functional Interface.
+
+ Ex.
+        Runnable   ->    run();
+        Callable   ->    call();
+        Comparable ->    compareTo();
+        Comparator ->    compare();
