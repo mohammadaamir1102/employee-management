@@ -27,6 +27,7 @@
     Takes one arguments in input and return the boolean value
     only one abstract method  boolean test(T t);
 
+
 4- Supplier Functional Interface?
     it is a functional interface which is introduce in java 8
     Takes no argument but output expected
