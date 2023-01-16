@@ -15,8 +15,19 @@
         Comparable ->    compareTo();
         Comparator ->    compare();
 
-2- Consumer interface?
+2- Consumer Functional Interface?
     it is a functional interface which is introduce in java 8
     Consumer takes an object in input and produce a result
     consumer function don't return any value because accept method return type is void
-    only one abstract method   accept();
+    only one abstract method   void accept(T t);
+
+
+3- Predicate Functional interface?
+    it is a functional interface which is introduce in java 8
+    Takes one arguments in input and return the boolean value
+    only one abstract method  boolean test(T t);
+
+4- Supplier Functional Interface?
+    it is a functional interface which is introduce in java 8
+    Takes no argument but output expected
+    only one abstract method  T get();

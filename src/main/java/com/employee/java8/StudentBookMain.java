@@ -14,6 +14,7 @@ public class StudentBookMain  {
         bookData.add(new StudentBook(4, "JSP", 100));
         bookData.add(new StudentBook(5, "Servlet", 100));
         bookData.add(new StudentBook(6, "PHP", 100));
+        System.out.println(bookData.size());
         Collections.sort(bookData, (b1,b2)-> b1.getBookName().compareTo(b2.getBookName()));
         bookData.forEach(System.out::println);
     }
