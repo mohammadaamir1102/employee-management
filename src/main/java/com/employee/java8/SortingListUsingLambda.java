@@ -31,7 +31,12 @@ public class SortingListUsingLambda {
         employees.forEach(System.out::println);
 
         System.out.println("___________________");
-        employees.stream().sorted(Comparator.comparing(empName->empName.getName())).forEach(System.out::println);
+        employees.stream().sorted(Comparator.comparing(empName -> empName.getName()))
+                .forEach(System.out::println);
+
+        System.out.println("___________________");
+        employees.stream().sorted(Comparator.comparing(Employee::getId)) //method reference
+                .forEach(System.out::println);
 
     }
 }
