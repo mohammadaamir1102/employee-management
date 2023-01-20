@@ -26,7 +26,7 @@ public class SortingListUsingLambda {
         list.stream().sorted(Comparator.reverseOrder()).forEach(System.out::println); //Descending
 
         System.out.println("_________________");
-        List<Employee> employees = EmployeeMain.findEmployees();
+        List<Employee> employees = EmployeeMain.findListEmployee();
         Collections.sort(employees, (e1, e2) -> e2.getName().compareTo(e1.getName()));
         employees.forEach(System.out::println);
 

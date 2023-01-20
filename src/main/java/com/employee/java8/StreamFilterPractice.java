@@ -43,7 +43,7 @@ public class StreamFilterPractice {
                 .forEach(out -> System.out.println(out));
 
 //      project level example (filter out tax payer employee)
-        List<Employee> employees = EmployeeMain.findEmployees();
+        List<Employee> employees = EmployeeMain.findListEmployee();
         List<Employee> taxableEmployees = employees.stream()
                 .filter(taxableEmployee -> taxableEmployee.getSalary() > 20000)
                 .collect(Collectors.toList());
@@ -55,7 +55,7 @@ public class StreamFilterPractice {
     }
 
     public static List<Employee> evaluateTaxUser(String input) {
-        List<Employee> employees = EmployeeMain.findEmployees();
+        List<Employee> employees = EmployeeMain.findListEmployee();
         return (input.equalsIgnoreCase("tax")) ? employees.stream()
                 .filter(taxableEmployee -> taxableEmployee.getSalary() > 20000)
                 .collect(Collectors.toList()) : employees.stream()
