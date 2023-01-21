@@ -12,8 +12,7 @@ public class EmployeeMain {
                 new Employee(3, "Aamir khan", 10000.0),
                 new Employee(2, "Imran khan", 20000.0),
                 new Employee(1, "Muzammil khan", 30000.0),
-                new Employee(4, "Noman khan", 40000.0)
-        );
+                new Employee(4, "Noman khan", 40000.0));
         return employees;
     }
 
