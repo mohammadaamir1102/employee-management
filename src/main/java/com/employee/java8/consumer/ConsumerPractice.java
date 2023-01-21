@@ -1,4 +1,4 @@
-package com.employee.java8;
+package com.employee.java8.consumer;
 
 import java.util.Arrays;
 import java.util.List;

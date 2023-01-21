@@ -1,4 +1,7 @@
-package com.employee.java8;
+package com.employee.java8.stream;
+
+import com.employee.java8.Employee;
+import com.employee.java8.EmployeeMain;
 
 import java.util.*;
 
