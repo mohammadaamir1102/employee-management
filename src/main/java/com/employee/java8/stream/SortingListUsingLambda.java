@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class SortingListUsingLambda {
 
@@ -45,6 +46,11 @@ public class SortingListUsingLambda {
         employees.stream().sorted(Comparator.comparing(Employee::getSalary).reversed()) //method reference , Descending
                 .forEach(System.out::println);
 
+        System.out.println("_____________________");
+        //finding 2nd highest salary record
+        List<Employee> secondHighestSalary = employees.stream().sorted(Comparator.comparing(Employee::getSalary)
+                .reversed()).skip(1).collect(Collectors.toList());
+        System.out.println("Second highest salary"+secondHighestSalary);
 
     }
 }
