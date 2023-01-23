@@ -41,5 +41,10 @@ public class SortingListUsingLambda {
         employees.stream().sorted(Comparator.comparing(Employee::getId)) //method reference
                 .forEach(System.out::println);
 
+        System.out.println("____________________");
+        employees.stream().sorted(Comparator.comparing(Employee::getSalary).reversed()) //method reference , Descending
+                .forEach(System.out::println);
+
+
     }
 }
