@@ -52,5 +52,16 @@ public class SortingListUsingLambda {
                 .reversed()).skip(1).collect(Collectors.toList());
         System.out.println("Second highest salary"+secondHighestSalary);
 
+
+        System.out.println("_____________________");
+        Long count = employees.stream().count();
+        System.out.println("count is "+count);
+
+        System.out.println("_____________________");
+        Integer collect = employees.stream().collect(Collectors.summingInt(Employee::getId));
+        System.out.println("count is "+collect);
+
+        System.out.println("_____________________");
+
     }
 }
