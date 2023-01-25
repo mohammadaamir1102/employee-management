@@ -42,12 +42,12 @@ public class Test {
 
 
         employees.stream().filter(e -> e.salary()%2 == 0).collect(Collectors.toList());
-        getEmployees(employees,e -> e.salary()%2==0);
-        getEmployees(employees,e -> e.salary()%2==0);
-        getEmployees(employees,e -> e.salary()%2==0);
-        getEmployees(employees,e -> e.salary()%2==0);
-        getEmployees(employees,e -> e.salary()%2==0);
-        getEmployees(employees,e -> e.salary()%2==0);
+        getEmployees(employees,e -> e.salary()>10000);
+        getEmployees(employees,e -> e.salary()<10000);
+        getEmployees(employees,e -> e.salary()>=1000);
+        getEmployees(employees,e -> e.salary()<=1000);
+        getEmployees(employees,e -> e.salary()>=20000);
+        getEmployees(employees,e -> e.salary()<=20000);
 
     }
 
