@@ -21,6 +21,14 @@ public class OptionalDemo {
         Optional<String> customerEmail = Optional.ofNullable(customer.getEmail());
         System.out.println("__________________     "+customerEmail);
 
+        Optional<String> emOptional = Optional.ofNullable(customer.getEmail());
+        if(emOptional.isPresent()){
+            Object o = emptyOptional.get();
+            System.out.println(o);
+        }else{
+            System.out.println("empty "+emOptional.orElse(OptionalDemo.EMPTY));
+        }
+
 
         // if customer.getEmail is null then got NullPointerException bcz Optional.of() method
         Optional<String> emailOptional = Optional.of(customer.getEmail());
