@@ -64,5 +64,9 @@
     It is also called one-to-many mapping
     Stream(R) map(Stream<Stream<T>> input){}
 
+8- Optional
+   Avoiding the NullPointerException
+
+
 
 
