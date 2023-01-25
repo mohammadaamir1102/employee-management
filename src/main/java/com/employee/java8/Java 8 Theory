@@ -49,3 +49,20 @@
    2-Code Reduce (if we are using lambda expression the code line will be reduce)
    3-Bulk Operation
 
+7- map and flatMap
+    1- map() method use for the transformation
+    data transformation means (getting a lowercase stream alphabet and converting that alphabet in upper case)
+    Stream.of("a","b","c","d")   after converting [A,B,C,D]
+    takes a Stream input and returns a Stream in output
+    It is also called one-to-one mapping
+    Stream(R) map(Stream<T> input){}
+
+
+    2- flatMap() method use for the transformation & flattering (flatMap = map()+flattering)
+    flattering means = [[1,2],[3,4],[5,6]] after flattering [1,2,3,4,5,6]
+    takes a Stream of Stream as input and return a Single Stream in output
+    It is also called one-to-many mapping
+    Stream(R) map(Stream<Stream<T>> input){}
+
+
+
