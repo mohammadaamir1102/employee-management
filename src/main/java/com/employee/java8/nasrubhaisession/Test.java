@@ -41,13 +41,18 @@ public class Test {
         System.out.println(emps.size());
 
 
-        employees.stream().filter(e -> e.salary()%2 == 0).collect(Collectors.toList());
-        getEmployees(employees,e -> e.salary()>10000);
-        getEmployees(employees,e -> e.salary()<10000);
-        getEmployees(employees,e -> e.salary()>=1000);
-        getEmployees(employees,e -> e.salary()<=1000);
-        getEmployees(employees,e -> e.salary()>=20000);
-        getEmployees(employees,e -> e.salary()<=20000);
+//        employees.stream().filter(e -> e.salary()%2 == 0).collect(Collectors.toList());
+        getEmployees(employees,e -> e.salary()>10000).forEach(System.out::println);
+        System.out.println("++++++++++++++++++++++++");
+        getEmployees(employees,e -> e.salary()<10000).forEach(System.out::println);
+        System.out.println("++++++++++++++++++++++++");
+        getEmployees(employees,e -> e.salary()>=1000).forEach(System.out::println);
+        System.out.println("++++++++++++++++++++++++");
+        getEmployees(employees,e -> e.salary()<=1000).forEach(System.out::println);
+        System.out.println("++++++++++++++++++++++++");
+        getEmployees(employees,e -> e.salary()>=20000).forEach(System.out::println);
+        System.out.println("++++++++++++++++++++++++");
+        getEmployees(employees,e -> e.salary()<=20000).forEach(System.out::println);
 
     }
 
