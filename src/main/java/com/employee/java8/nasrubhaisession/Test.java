@@ -42,6 +42,7 @@ public class Test {
 
 
 //        employees.stream().filter(e -> e.salary()%2 == 0).collect(Collectors.toList());
+        // making a common method for salary sorting
         getEmployees(employees,e -> e.salary()>10000).forEach(System.out::println);
         System.out.println("++++++++++++++++++++++++");
         getEmployees(employees,e -> e.salary()<10000).forEach(System.out::println);
@@ -53,6 +54,7 @@ public class Test {
         getEmployees(employees,e -> e.salary()>=20000).forEach(System.out::println);
         System.out.println("++++++++++++++++++++++++");
         getEmployees(employees,e -> e.salary()<=20000).forEach(System.out::println);
+
 
     }
 
