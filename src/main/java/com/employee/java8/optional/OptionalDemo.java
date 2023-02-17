@@ -10,12 +10,13 @@ public class OptionalDemo {
     private final static String EMPTY ="";
     public static void main(String[] args) {
         Customer customer =
-                new Customer(1, "Aamir khan", null, Arrays.asList("3242343,534324123"));
+                new Customer(1, "Aamir khan", "aamir123@gmail.com", Arrays.asList("3242343,534324123"));
         //empty
         //of
         //ofNullable
         Optional<Object> emptyOptional = Optional.empty();
         System.out.println("_________________     "+emptyOptional);
+        Optional.ofNullable(customer.getEmail());
 
         // if customer.getEmail is null then got emptyOptional bcz Optional.ofNullable() method
         Optional<String> customerEmail = Optional.ofNullable(customer.getEmail());

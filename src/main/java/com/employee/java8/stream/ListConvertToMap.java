@@ -1,11 +1,14 @@
 package com.employee.java8.stream;
 
+import com.employee.utility.EMUtility;
+
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
 public class ListConvertToMap {
@@ -103,7 +106,7 @@ public class ListConvertToMap {
                 .collect(Collectors.groupingBy(User::getName));
         groupByName.forEach((key, value) -> System.out.println(key + " " + value));
 
-        System.out.println("___________________________");
+        System.out.println(" above grouping___________________________");
 
         /*
         * Count the users having the same name, where key is user-name and value is count.
@@ -133,4 +136,6 @@ public class ListConvertToMap {
 
         System.out.println("________________________________");
     }
+
+
 }

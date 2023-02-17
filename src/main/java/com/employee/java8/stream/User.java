@@ -1,6 +1,8 @@
 package com.employee.java8.stream;
 
-public class User {
+import java.io.Serializable;
+
+public class User implements Serializable {
     Long id;
     String name;
     Integer age;
