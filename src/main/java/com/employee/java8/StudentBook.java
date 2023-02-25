@@ -8,7 +8,6 @@ public class StudentBook {
 
     public StudentBook() {
         super();
-        // TODO Auto-generated constructor stub
     }
 
     public StudentBook(Integer id, String bookName, int pages) {
