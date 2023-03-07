@@ -19,7 +19,8 @@ public class ListConvertToMap {
                 new User(5L, "Furqan", 18),
                 new User(6L, "Gufran", 19)
         );
-
+        List<User> modifiedList = users.stream().filter(items -> items.getAge() > 29).collect(Collectors.toList());
+        System.out.println("aaaaaaaaaaaaaaaaaaaa");
         /*
          * Let’s stream the List and collect it to a Map using Collectors.toMap(keyMapper, valueMapper)
          * where key is unique id of user and value is name of the user which may duplicate.
@@ -132,7 +133,24 @@ public class ListConvertToMap {
         System.out.println("user ages sum "+ sumOfAge);
 
         System.out.println("________________________________");
+
+        // anyMatch accept the input as predicate and return boolean
+
+        boolean anyMatch = users.stream().anyMatch(item -> item.getName().matches("Aamir"));
+        System.out.println("any match out put is = "+ anyMatch);
+
+        // allMatch accept the input as predicate and return boolean
+
+        boolean allMatch = users.stream().allMatch(item -> item.getName().matches("Aamir"));
+        System.out.println("all match out put is = "+ allMatch);
+
+        // nonMatch accept the input as predicate and return boolean
+        boolean noneMatch = users.stream().noneMatch(item -> item.getName().matches("Salman"));
+        System.out.println("none match out put is = " + noneMatch);
     }
+
+
+
 
 
 }

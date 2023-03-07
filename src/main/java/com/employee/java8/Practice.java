@@ -1,15 +1,10 @@
 package com.employee.java8;
 
-import java.util.List;
+import java.util.function.Predicate;
 
 public class Practice {
-
     public static void main(String[] args) {
-        List<StudentBook> studentBook = StudentBookMain.getStudentBook();
-        for (StudentBook book : studentBook) {
-
-        }
+        Predicate<Integer> predicate = t -> Boolean.parseBoolean(t % 2 == 0 ? "Odd" : "Even");
     }
-
 }
 
