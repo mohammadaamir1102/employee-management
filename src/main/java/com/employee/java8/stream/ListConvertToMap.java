@@ -1,9 +1,6 @@
 package com.employee.java8.stream;
 
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.function.Function;
 import java.util.stream.Collectors;
@@ -75,10 +72,10 @@ public class ListConvertToMap {
 
 
         /*
-        * Java 8 Streams provide Collectors.toMap(keyMapper, valueMapper, mergeFunction, mapFactory)
-        * overloaded method where you can specify the type using mapFactory to return ConcurrentHashMap,
-        * LinkedHashMap or TreeMap.
-        */
+         * Java 8 Streams provide Collectors.toMap(keyMapper, valueMapper, mergeFunction, mapFactory)
+         * overloaded method where you can specify the type using mapFactory to return ConcurrentHashMap,
+         * LinkedHashMap or TreeMap.
+         */
 
         Map<String, Integer> concurrentHashMap = users.stream()
                 .collect(Collectors.toMap(User::getName, User::getAge, (o1, o2) -> o1, ConcurrentHashMap::new));
@@ -96,9 +93,9 @@ public class ListConvertToMap {
         System.out.println("________________________");
 
         /*
-        * Let’s group the stream of user object by name using Collectors.groupingBy(keyMapper)
-        * which returns a Map having key as user-name and value as List of user object matching that key
-        */
+         * Let’s group the stream of user object by name using Collectors.groupingBy(keyMapper)
+         * which returns a Map having key as user-name and value as List of user object matching that key
+         */
 
         Map<String, List<User>> groupByName = users.stream()
                 .collect(Collectors.groupingBy(User::getName));
@@ -107,8 +104,8 @@ public class ListConvertToMap {
         System.out.println(" above grouping___________________________");
 
         /*
-        * Count the users having the same name, where key is user-name and value is count.
-        */
+         * Count the users having the same name, where key is user-name and value is count.
+         */
 
         Map<String, Long> countByName = users.stream()
                 .collect(Collectors.groupingBy(User::getName, Collectors.counting()));
@@ -117,8 +114,8 @@ public class ListConvertToMap {
         System.out.println("___________________________");
 
         /*
-        * Sum of the age of users having the same name, where key is user-name and value is sum of age.
-        */
+         * Sum of the age of users having the same name, where key is user-name and value is sum of age.
+         */
 
         Map<String, Integer> sumAgeByName = users.stream()
                 .collect(Collectors.groupingBy(User::getName, Collectors.summingInt(User::getAge)));
@@ -126,31 +123,56 @@ public class ListConvertToMap {
 
         System.out.println("______________________________");
         /*
-        * counting user ages
-        */
+         * counting user ages
+         */
         Integer sumOfAge = users.stream()
                 .collect(Collectors.summingInt(User::getAge));
-        System.out.println("user ages sum "+ sumOfAge);
+        System.out.println("user ages sum " + sumOfAge);
 
         System.out.println("________________________________");
 
         // anyMatch accept the input as predicate and return boolean
 
         boolean anyMatch = users.stream().anyMatch(item -> item.getName().matches("Aamir"));
-        System.out.println("any match out put is = "+ anyMatch);
+        System.out.println("any match out put is = " + anyMatch);
 
         // allMatch accept the input as predicate and return boolean
 
         boolean allMatch = users.stream().allMatch(item -> item.getName().matches("Aamir"));
-        System.out.println("all match out put is = "+ allMatch);
+        System.out.println("all match out put is = " + allMatch);
 
         // nonMatch accept the input as predicate and return boolean
         boolean noneMatch = users.stream().noneMatch(item -> item.getName().matches("Salman"));
         System.out.println("none match out put is = " + noneMatch);
+
+        System.out.println("............");
+
+        List<String> collect = users.stream().map(item -> item.getName().toUpperCase()).collect(Collectors.toList());
+        List<String> uppercase = users.stream().filter(item -> item.getName().startsWith("A")).
+                map(item -> item.getName().toUpperCase()).collect(Collectors.toList());
+
+        List<User> modi = new ArrayList<>();
+        for (User user : users) {
+            if (user.getName().startsWith("A")) {
+                user.setName(user.getName().toUpperCase());
+                modi.add(user);
+            } else {
+                modi.add(user);
+            }
+        }
+        System.out.println(collect);
+        System.out.println(uppercase);
+        modi.forEach(System.out::println);
+
+        System.out.println("________________________");
+        long count = users.stream().map(item -> item.getAge()).count();
+        System.out.println("count is " + count);
+
+        //age summing
+        Integer summing = users.stream().map(User::getAge).reduce(0, Integer::sum);
+        System.out.println("age summing is " + summing);
+
     }
-
-
-
 
 
 }
