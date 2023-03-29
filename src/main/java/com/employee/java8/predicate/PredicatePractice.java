@@ -15,6 +15,9 @@ public class PredicatePractice implements Predicate<Integer> {
         Predicate<Integer> predicate = new PredicatePractice();
         System.out.println(predicate.test(2 ));
 
+        Predicate<Integer> pre = (value)-> (value %2==0)? Boolean.TRUE : Boolean.FALSE;
+        System.out.println(pre.test(13));
+
     }
 
 
