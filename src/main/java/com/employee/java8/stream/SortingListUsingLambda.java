@@ -78,6 +78,14 @@ public class SortingListUsingLambda {
 
         System.out.println("_____________________");
 
+        // finding distinct employee object with particular field.
+        List<Employee> uniqueObjectBasedOnName = EmployeeMain.findUniqueNameObjecdt();
+        List<Employee> uniqueResult = uniqueObjectBasedOnName.stream().collect(
+                        Collectors.toMap(Employee::getName, e -> e, (e1, e2) -> e1))
+                .values().stream().collect(Collectors.toList());
+        uniqueResult.forEach(a -> System.out.println("unique result is " + a));
+
+
     }
 
     private static String checkValidation(Employee validation) {
@@ -90,4 +98,6 @@ public class SortingListUsingLambda {
         }
         return "";
     }
+
+
 }
