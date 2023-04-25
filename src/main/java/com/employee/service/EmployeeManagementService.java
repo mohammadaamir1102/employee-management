@@ -28,4 +28,6 @@ public interface EmployeeManagementService {
     String inActiveUser(Long id) throws Exception;
 
     Optional<EmployeeManagement> getEmployeeBasedOnContact(EmployeeManagementContactDTO employeeManagementContactDTO);
+
+    List<EmployeeManagement> dynamicSearchWithMultipleFields(String searchKey);
 }

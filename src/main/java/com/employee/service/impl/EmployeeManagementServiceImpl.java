@@ -9,6 +9,7 @@ import java.util.stream.Collectors;
 
 import com.employee.dto.EmployeeManagementContactDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
 import com.employee.constent.EMConstant;
@@ -17,6 +18,12 @@ import com.employee.entity.EmployeeManagement;
 import com.employee.mapper.EmployeeManagementMapper;
 import com.employee.repsitory.EmployeeManagementRepository;
 import com.employee.service.EmployeeManagementService;
+import org.springframework.util.StringUtils;
+
+import javax.persistence.criteria.CriteriaBuilder;
+import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
+import javax.persistence.criteria.Root;
 
 @Service
 public class EmployeeManagementServiceImpl implements EmployeeManagementService {
@@ -176,15 +183,34 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
         Optional<EmployeeManagement> byContactAndIsActive = employeeManagementRepository.findByContactAndIsActive(employeeManagementContactDTO.getContact(),
                 employeeManagementContactDTO.getIsActive());
         //here if got two record then got exception because optional is not LIST
-        if(byContactAndIsActive.isPresent()){
+        if (byContactAndIsActive.isPresent()) {
             return byContactAndIsActive;
         }
         return Optional.empty();
     }
 
+    @Override
+    public List<EmployeeManagement> dynamicSearchWithMultipleFields(String searchKey) {
+        return employeeManagementRepository.findAll(new Specification<EmployeeManagement>() {
+            @Override
+            public Predicate toPredicate(Root<EmployeeManagement> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+                List<Predicate> predicates = new ArrayList<>();
+                if (!StringUtils.isEmpty(searchKey)) {
+                    predicates.add(criteriaBuilder.or(
+                            criteriaBuilder.like(root.get("firstName"), "%" + searchKey + "%"),
+                            criteriaBuilder.like(root.get("lastName"), "%" + searchKey + "%"),
+                            criteriaBuilder.like(root.get("email"), "%" + searchKey + "%"),
+                            criteriaBuilder.like(root.get("city"), "%" + searchKey + "%"),
+                            criteriaBuilder.like(root.get("address"), "%" + searchKey + "%"))
+                    );
+                }
+                return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
+            }
+        });
+    }
+
 
     public static void main(String[] args) throws Exception {
-
 
 
         System.out.println("Hello aamir khan !!!");
@@ -198,8 +224,8 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
 
     private static void printAamir(String aamir) throws Exception {
         try {
-            int a=10/0;
-        }catch (Exception e){
+            int a = 10 / 0;
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }

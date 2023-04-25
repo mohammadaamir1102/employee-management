@@ -2,6 +2,7 @@ package com.employee.java8;
 
 
 import com.employee.java8.Vo.ClientVO;
+import org.springframework.util.ObjectUtils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -23,6 +24,12 @@ public class Practice {
 ////        clientVO.setfTsar(decimalFormat.format(d));
 //        clientVO.setfTsar(String.valueOf(bigInteger));
 //        System.out.println(clientVO.getfTsar());
+
+        if(ObjectUtils.nullSafeEquals("Medical","Medical") ){
+            System.out.println("if block");
+        }else {
+            System.out.println("else block");
+        }
 
         List<Employee> listEmployee = EmployeeMain.findListEmployee();
         System.out.println(listEmployee.size());
