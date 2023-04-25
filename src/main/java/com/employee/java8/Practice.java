@@ -9,18 +9,20 @@ import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.math.MathContext;
 import java.text.DecimalFormat;
-import java.util.LinkedHashSet;
-import java.util.List;
-import java.util.Objects;
-import java.util.Set;
+import java.util.*;
 
 public class Practice {
     public static void main(String[] args) {
 
-        String aamir="";
+        String aamir="a mir khan";
         if(!StringUtils.isEmpty(aamir)){
-            System.out.println("hi");
+            System.out.println("is empty");
         }
+        String aasim = "a asim khan";
+        if(StringUtils.hasLength(aasim)){
+            System.out.println("has text");
+        }
+
 //       Double d = 576564545675765867687687d;
 //        BigInteger bigInteger = new BigInteger(String.valueOf(d));
 //        BigDecimal b = new BigDecimal(d, MathContext.UNLIMITED);
