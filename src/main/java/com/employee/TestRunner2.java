@@ -11,9 +11,9 @@ import java.util.List;
 public class TestRunner2 implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
-        List<String> list = new ArrayList<>();
+     /*   List<String> list = new ArrayList<>();
         if(CollectionUtils.isEmpty(list)){
             System.out.println("if block");
-        }
+        }*/
     }
 }

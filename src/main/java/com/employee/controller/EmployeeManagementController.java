@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Optional;
 
 import com.employee.dto.EmployeeManagementContactDTO;
+import com.employee.dto.EmployeeManagementSearchDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
@@ -90,6 +91,11 @@ public class EmployeeManagementController {
     @PostMapping("/getEmployeeByContactAndActivity")
     public Optional<EmployeeManagement> getEmployeeBasedOnContact(@RequestBody EmployeeManagementContactDTO employeeManagementContactDTO){
             return employeeManagementService.getEmployeeBasedOnContact(employeeManagementContactDTO);
+    }
+
+    @PostMapping("/dynamicSearch")
+    public List<EmployeeManagement> dynamicSearchWithMultipleFields(@RequestBody EmployeeManagementSearchDTO employeeManagementSearchDTO){
+        return employeeManagementService.dynamicSearchWithMultipleFields(employeeManagementSearchDTO.getSearchKey());
     }
 
 }

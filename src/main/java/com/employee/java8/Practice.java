@@ -3,6 +3,7 @@ package com.employee.java8;
 
 import com.employee.java8.Vo.ClientVO;
 import org.springframework.util.ObjectUtils;
+import org.springframework.util.StringUtils;
 
 import java.math.BigDecimal;
 import java.math.BigInteger;
@@ -15,6 +16,11 @@ import java.util.Set;
 
 public class Practice {
     public static void main(String[] args) {
+
+        String aamir="";
+        if(!StringUtils.isEmpty(aamir)){
+            System.out.println("hi");
+        }
 //       Double d = 576564545675765867687687d;
 //        BigInteger bigInteger = new BigInteger(String.valueOf(d));
 //        BigDecimal b = new BigDecimal(d, MathContext.UNLIMITED);
