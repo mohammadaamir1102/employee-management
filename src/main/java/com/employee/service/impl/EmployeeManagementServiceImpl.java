@@ -8,6 +8,7 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.employee.dto.EmployeeManagementContactDTO;
+import com.employee.java8.Vo.ClientVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
@@ -114,8 +115,10 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
         try {
             Optional<EmployeeManagement> employeeManagementOptional = employeeManagementRepository
                     .findByIdAndIsActive(id, EMConstant.IS_ACTIVE);
+            checkNullPointerForLearningPurpose(employeeManagementOptional);
             if (employeeManagementOptional.isPresent()) {
                 EmployeeManagement employeeManagement = employeeManagementOptional.get();
+
                 EmployeeManagementDTO employeeManagementToEmpployeeManagementDto = employeeManagementMapper
                         .employeeManagementToEmpployeeManagementDto(employeeManagement);
                 return employeeManagementToEmpployeeManagementDto;
@@ -125,6 +128,14 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
         }
 
         return null;
+    }
+
+    private void checkNullPointerForLearningPurpose(Optional<EmployeeManagement> employeeManagement) {
+
+        ClientVO clientVO = new ClientVO();
+        clientVO.setfTsar(employeeManagement.map(EmployeeManagement::getLastName).orElseGet(() -> "Hellow"));
+        System.out.println("client value" + clientVO.getfTsar());
+
     }
 
     private Optional<EmployeeManagement> getEmployeeUserName(Long id) {

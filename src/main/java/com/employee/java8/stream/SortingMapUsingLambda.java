@@ -34,6 +34,10 @@ public class SortingMapUsingLambda {
                 .sorted(Map.Entry.comparingByKey())
                     .forEach(System.out::println); //ascending
 
+        studentMap.entrySet().stream()
+                .sorted(Map.Entry.comparingByKey())
+                .forEach(System.out::println); //ascending
+
         System.out.println("_____________________________");
         studentMap.entrySet().stream()
                 .sorted(Map.Entry.comparingByValue((st1,st2)->st2.compareTo(st1)))

@@ -2,6 +2,7 @@ package com.employee.java8.stream;
 
 import com.employee.java8.Employee;
 import com.employee.java8.EmployeeMain;
+import com.employee.java8.Student;
 import com.employee.java8.Vo.ClientVO;
 import org.apache.commons.lang3.StringUtils;
 
@@ -42,10 +43,10 @@ public class SortingListUsingLambda {
                     return name;
                 }).findAny();
 
-        System.out.println("value is "+value);
+        System.out.println("value is " + value);
         ClientVO clientVO = new ClientVO();
         clientVO.setfTsar(value.get());
-        System.out.println("client data "+clientVO.getfTsar());
+        System.out.println("client data " + clientVO.getfTsar());
         Collections.sort(employees, (e1, e2) -> e2.getName().compareTo(e1.getName()));
         employees.forEach(System.out::println);
 
@@ -86,11 +87,18 @@ public class SortingListUsingLambda {
         uniqueResult.forEach(a -> System.out.println("unique result is " + a));
 
 
+        Optional<Student> student = EmployeeMain.findStudent();
+        System.out.println("student data is = " + student.get());
+        System.out.println(student.get().getName());
+
+        clientVO.setfTsar(student.map(Student::getName).orElseGet(() -> "Hello Aamir"));
+        System.out.println("client vo + " + clientVO.getfTsar());
+
     }
 
     private static String checkValidation(Employee validation) {
         try {
-            if(!StringUtils.isEmpty(validation.getName())) {
+            if (!StringUtils.isEmpty(validation.getName())) {
                 return validation.getName();
             }
         } catch (Exception e) {

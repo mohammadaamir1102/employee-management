@@ -14,5 +14,10 @@ public class DuplicateFinding {
                 .entrySet().stream().filter(item -> item.getValue() > 1)
                 .map(Map.Entry::getKey).collect(Collectors.toList());
         System.out.println("duplicate letter here "+ duplicateLetters);
+
+
+        Map<String, Long> collect = Arrays.stream(name.split("")).collect(
+                Collectors.groupingBy(Function.identity(), Collectors.counting()));
+        System.out.println(collect);
     }
 }

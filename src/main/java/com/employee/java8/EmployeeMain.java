@@ -1,9 +1,6 @@
 package com.employee.java8;
 
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class EmployeeMain {
 
@@ -36,5 +33,12 @@ public class EmployeeMain {
     public static void main(String[] args) {
         EmployeeMain.findListEmployee().forEach(System.out::println);
         System.out.println(EmployeeMain.findMapEmployee());
+    }
+
+    public static Optional<Student> findStudent(){
+        Student student = new Student();
+        student.setId(1);
+        student.setAddress("MillatNager");
+        return Optional.of(student);
     }
 }

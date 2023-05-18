@@ -21,6 +21,12 @@ public class Practice {
         String aasim = "a asim khan";
         if(StringUtils.hasLength(aasim)){
             System.out.println("has text");
+
+        }
+
+        List<Employee> listEmployee1 = EmployeeMain.findListEmployee();
+        if(Objects.nonNull(listEmployee1)){
+            System.out.println("aamir");
         }
 
 //       Double d = 576564545675765867687687d;
