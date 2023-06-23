@@ -1,4 +1,4 @@
-package com.employee.constent;
+package com.employee.constant;
 
 public class RegexConstant {
     public static final String NUMBERS_ONLY = "^[0-9]*$";

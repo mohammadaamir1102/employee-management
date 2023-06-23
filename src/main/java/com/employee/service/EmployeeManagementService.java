@@ -5,7 +5,9 @@ import java.util.Optional;
 
 import com.employee.dto.EmployeeManagementContactDTO;
 import com.employee.dto.EmployeeManagementDTO;
+import com.employee.dto.PhaseVo;
 import com.employee.entity.EmployeeManagement;
+import org.springframework.core.io.InputStreamResource;
 
 public interface EmployeeManagementService {
 
@@ -30,4 +32,6 @@ public interface EmployeeManagementService {
     Optional<EmployeeManagement> getEmployeeBasedOnContact(EmployeeManagementContactDTO employeeManagementContactDTO);
 
     List<EmployeeManagement> dynamicSearchWithMultipleFields(String searchKey);
+
+    InputStreamResource getExcelTemplate(PhaseVo phaseVo);
 }

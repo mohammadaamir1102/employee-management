@@ -8,12 +8,16 @@ import java.util.Optional;
 import java.util.stream.Collectors;
 
 import com.employee.dto.EmployeeManagementContactDTO;
+import com.employee.dto.PhaseVo;
 import com.employee.java8.Vo.ClientVO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.core.io.InputStreamResource;
+import org.springframework.core.io.Resource;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
 
-import com.employee.constent.EMConstant;
+import com.employee.constant.EMConstant;
 import com.employee.dto.EmployeeManagementDTO;
 import com.employee.entity.EmployeeManagement;
 import com.employee.mapper.EmployeeManagementMapper;
@@ -33,6 +37,11 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
 
     @Autowired
     private EmployeeManagementMapper employeeManagementMapper;
+
+    @Value("classpath:" + EMConstant.EXCEL_FILE_NAME_AAMIR_KHAN)
+    Resource aamirKhanResource;
+    @Value("classpath:" + EMConstant.EXCEL_FILE_NAME_SALMAN_KHAN)
+    Resource salmanKhanResource;
 
     @Override
     public EmployeeManagement saveEmployeeManagement(EmployeeManagement employeeManagement) {
@@ -218,6 +227,22 @@ public class EmployeeManagementServiceImpl implements EmployeeManagementService 
                 return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
             }
         });
+    }
+
+    @Override
+    public InputStreamResource getExcelTemplate(PhaseVo phaseVo) {
+        InputStreamResource inputStreamResource = null;
+        try {
+            if(phaseVo.getPhase().equalsIgnoreCase("aamirKhan")) {
+                inputStreamResource = new InputStreamResource(aamirKhanResource.getInputStream());
+            }
+            else {
+                inputStreamResource = new InputStreamResource(salmanKhanResource.getInputStream());
+            }
+        } catch (Exception ex) {
+            throw new RuntimeException("Something went wrong and file not downloaded");
+        }
+        return inputStreamResource;
     }
 
 

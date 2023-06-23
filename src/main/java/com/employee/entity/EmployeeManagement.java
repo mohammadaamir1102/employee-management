@@ -1,6 +1,6 @@
 package com.employee.entity;
 
-import com.employee.constent.RegexConstant;
+import com.employee.constant.RegexConstant;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

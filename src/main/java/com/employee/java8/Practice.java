@@ -13,6 +13,13 @@ import java.util.*;
 
 public class Practice {
     public static void main(String[] args) {
+        String proposal = "05154653";
+        String sysProduct = "05154653";
+        if(proposal.equals(sysProduct)){
+            System.out.println("equal");
+        }else {
+            System.out.println("not equal");
+        }
 
         String aamir="a mir khan";
         if(!StringUtils.isEmpty(aamir)){
