@@ -15,8 +15,13 @@ public class ReturnSumOfAllNum {
                 .sum(); // Calculate the sum
         int secondWay = numbers.stream().collect(Collectors.summingInt(Integer::intValue));
 
-        System.out.println("Sum of numbers: " + firstWay);
-        System.out.println("Sum of numbers: "+ secondWay);
+        int thirdWay = 0;
+        for (Integer number : numbers) {
+            thirdWay = thirdWay + number;
+        }
 
+        System.out.println("Sum of numbers: " + firstWay);
+        System.out.println("Sum of numbers: " + secondWay);
+        System.out.println("Sum of numbers: " + thirdWay);
     }
 }
