@@ -75,6 +75,7 @@ public class SortingListUsingLambda {
 
         System.out.println("_____________________");
         Integer collect = employees.stream().collect(Collectors.summingInt(Employee::getId));
+        employees.stream().collect(Collectors.summingDouble(Employee::getSalary));
         System.out.println("count is " + collect);
 
         System.out.println("_____________________");

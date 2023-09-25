@@ -2,6 +2,7 @@ package com.employee.java8.stream;
 
 import com.employee.java8.Employee;
 import com.employee.java8.EmployeeMain;
+import org.springframework.util.StringUtils;
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -59,6 +60,8 @@ public class StreamFilterPractice {
 
     public static List<Employee> evaluateTaxUser(String input) {
         List<Employee> employees = EmployeeMain.findListEmployee();
+        List<Employee> collect = employees.stream().filter(item -> item.getName().equals("Y"))
+                .collect(Collectors.toList());
         return (input.equalsIgnoreCase("tax")) ? employees.stream()
                 .filter(taxableEmployee -> taxableEmployee.getSalary() > 20000)
                 .collect(Collectors.toList()) : employees.stream()

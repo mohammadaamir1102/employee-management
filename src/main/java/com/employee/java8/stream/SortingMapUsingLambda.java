@@ -2,6 +2,7 @@ package com.employee.java8.stream;
 
 import com.employee.java8.Employee;
 import com.employee.java8.EmployeeMain;
+import com.employee.java8.Vo.ClientVO;
 
 import java.util.*;
 
@@ -12,6 +13,19 @@ public class SortingMapUsingLambda {
         studentMap.put("UK", "United Kingdom");
         studentMap.put("IND", "India");
         studentMap.put("MK", "Makka");
+
+        StringBuilder sb = new StringBuilder();
+        sb.append("{");
+        studentMap.forEach((key, value) -> {
+            sb.append(key).append("=").append(value).append(", ");
+        });
+        sb.setLength(sb.length() - 2);
+        sb.append("}");
+
+        ClientVO clientVO = new ClientVO();
+        clientVO.setfTsar(sb.toString());
+        System.out.println("client vo to string converter "+ clientVO.getfTsar());
+
 
         for (Map.Entry<String, String> map : studentMap.entrySet()) {
             System.out.println(map.getKey() + " " + map.getValue());

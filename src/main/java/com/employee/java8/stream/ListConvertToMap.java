@@ -172,6 +172,12 @@ public class ListConvertToMap {
         Integer summing = users.stream().map(User::getAge).reduce(0, Integer::sum);
         System.out.println("age summing is " + summing);
 
+
+        boolean anyMatchExample = users.stream().anyMatch(item -> item.getAge() <= 23 && item.getName().equals("Imran"));
+        System.out.println("any match example " + anyMatchExample);
+        boolean allMatchExample = users.stream().allMatch(item -> item.getAge() <= 23 || item.getName().equals("Aamir"));
+        System.out.println("all match example "+ allMatchExample);
+
     }
 
 

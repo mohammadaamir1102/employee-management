@@ -13,6 +13,15 @@ public class EmployeeMain {
         return employees;
     }
 
+    public static List<Employee> findListEmployee1() {
+        List<Employee> employees1 = Arrays.asList(
+                new Employee(1, "Salman Khan", 10000.0),
+                new Employee(2, "Imran khan", 10000.0),
+                new Employee(1, "Muzammil khan", 30000.0),
+                new Employee(4, "Noman khan", 40000.0));
+        return employees1;
+    }
+
     public static Map<Employee, Integer> findMapEmployee() {
         Map<Employee, Integer> employeeMap = new HashMap<>();
         employeeMap.put(new Employee(3, "Aamir khan", 10000.0), 8111);
@@ -41,4 +50,7 @@ public class EmployeeMain {
         student.setAddress("MillatNager");
         return Optional.of(student);
     }
+
+
+
 }
