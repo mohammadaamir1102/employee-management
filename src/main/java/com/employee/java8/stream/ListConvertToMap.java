@@ -8,7 +8,7 @@ import java.util.stream.Collectors;
 public class ListConvertToMap {
     public static void main(String[] args) {
 
-        List<User> users = List.of(
+        List<User> users = Arrays.asList(
                 new User(1L, "Aamir", 23),
                 new User(2L, "Aamir", 42),
                 new User(3L, "Imran", 29),

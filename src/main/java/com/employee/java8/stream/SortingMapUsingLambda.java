@@ -45,7 +45,7 @@ public class SortingMapUsingLambda {
 
 
         System.out.println("_____________________________");
-        Map<Employee, Integer> mapEmployee = EmployeeMain.findMapEmployee(); // object sorting in ascending format
+        Map<Employee, Integer>  mapEmployee = EmployeeMain.findMapEmployee(); // object sorting in ascending format
         mapEmployee.entrySet().stream()
                 .sorted(Map.Entry.comparingByKey(Comparator.comparing(Employee::getId)))
                     .forEach(System.out::println);
