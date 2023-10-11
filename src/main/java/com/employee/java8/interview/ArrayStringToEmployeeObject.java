@@ -1,12 +1,10 @@
-package com.employee.java8;
-
-
-import com.employee.java8.interview.EmployeeBean;
+package com.employee.java8.interview;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class Test {
+public class ArrayStringToEmployeeObject {
+
     public static void main(String[] args) {
 
      /*
@@ -61,6 +59,5 @@ Srno|Name|Gender|score|location|DepartmentID
         employeeBean.setDepartmentId(departmentId);
         return employeeBean;
     }
-
 
 }
