@@ -22,6 +22,7 @@ public class RemoveBraces {
             if (c == '[') {
                 insideTheBraces = true;
             } else if (c == ']') {
+                output.append(" ");
                 insideTheBraces = false;
             } else if (insideTheBraces) {
                 output.append(c);
