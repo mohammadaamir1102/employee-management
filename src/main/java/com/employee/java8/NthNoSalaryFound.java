@@ -21,8 +21,13 @@ public class NthNoSalaryFound {
                 new Employee(3, "Asad", 4400d)
         );
         try {
+
             Map.Entry<Double, List<String>> nthHighestSalary2 = getNthHighestSalary(empList, nth);
             System.out.println("Test Case 2: " + nthHighestSalary2);
+
+            System.out.println("_________________________________");
+            List<Employee> nthHighestSalaryEmployeeAllData = getNthHighestSalaryEmployeeAllData(empList);
+            System.out.println("second highest salary Employee Data " + nthHighestSalaryEmployeeAllData);
         } catch (Exception e) {
             System.out.println("Not Exist......");
         }
@@ -42,6 +47,13 @@ public class NthNoSalaryFound {
                 .sorted(Collections.reverseOrder(Map.Entry.comparingByKey()))
                 .toList()
                 .get(nth - 1);
+    }
+
+
+    private static List<Employee> getNthHighestSalaryEmployeeAllData(List<Employee> empList) {
+        return empList.stream().collect(Collectors.groupingBy(Employee::getSalary))
+                .entrySet().stream().sorted(Collections.reverseOrder(Map.Entry.comparingByKey()))
+                .map(Map.Entry::getValue).skip(1).findFirst().orElse(null);
     }
 
 
