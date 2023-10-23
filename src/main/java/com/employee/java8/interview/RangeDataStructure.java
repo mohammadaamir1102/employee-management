@@ -11,7 +11,7 @@ public class RangeDataStructure {
     }
 
     public void update(int i, int v) {
-        arr[i] = v;
+        arr[i] = v; //[0,0,6,0,0]
     }
 
     public int query(int l, int r) {
