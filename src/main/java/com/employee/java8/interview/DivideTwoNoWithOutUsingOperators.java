@@ -1,4 +1,4 @@
-package com.employee.interview;
+package com.employee.java8.interview;
 
 public class DivideTwoNoWithOutUsingOperators {
 
