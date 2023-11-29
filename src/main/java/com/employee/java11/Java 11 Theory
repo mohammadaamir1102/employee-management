@@ -1,0 +1,21 @@
+  Java 11 Features
+
+1- Running Java File with single command
+2- New utility methods in String class
+3- Local-Variable Syntax for Lambda Parameters
+4- Nested Based Access Control
+5- JEP 321: HTTP Client
+6- Reading/Writing Strings to and from the Files
+7- JEP 328: Flight Recorder
+
+1 - One major change is that we don’t need to compile the java source file with javac tool first.
+    We can directly run the file with java command and it implicitly compiles.
+
+2- String methods [ isBlank(), lines(), strip(), stripLeading(), stripTrailing(), repeat(int)]
+
+isBlank()       = Returns a boolean value. Empty Strings and Strings with only white spaces are treated as blank.
+lines()         = This method returns a stream of strings.
+strip()         = Removes the white space from both, beginning and the end of string.
+stripLeading()  = Removes the white space beginning of string.
+stripTrailing() = Removes the white space end of string.
+repeat(int)     = The repeat method simply repeats the string that many numbers of times.
