@@ -10,6 +10,7 @@ public class EmployeeOperations {
         List<Employee> listEmployee = EmployeeMain.findListEmployee();
         List<EmployeeRecord> list = listEmployee.stream()
                 .map(item -> new EmployeeRecord(item.getId(), item.getName(), item.getSalary())).toList();
-        System.out.println(list);
+        list.forEach(System.out::println);
+        list.stream().filter(item -> item.id() == 1).toList().forEach(System.out::println);
     }
 }
