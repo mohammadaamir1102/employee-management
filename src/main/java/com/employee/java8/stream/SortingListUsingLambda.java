@@ -32,6 +32,29 @@ public class SortingListUsingLambda {
         System.out.println("_________________");
         List<Employee> employees = EmployeeMain.findListEmployee();
 
+        System.out.println("-----------------------------------------");
+
+//      sorting a list of object by multiple fields
+        System.out.println("=============  below sorting -> id, name, salary =================");
+        employees.stream().sorted(Comparator.comparing(Employee::getId)
+                .thenComparing(Employee::getName)
+                .thenComparing(Employee::getSalary))
+                .forEach(System.out::println);
+
+        System.out.println("============= below sorting -> name, id, salary ===================");
+        employees.stream().sorted(Comparator.comparing(Employee::getName)
+                        .thenComparing(Employee::getId)
+                        .thenComparing(Employee::getSalary))
+                .forEach(System.out::println);
+
+        System.out.println("============= below sorting -> salary, name, id ====================");
+        employees.stream().sorted(Comparator.comparing(Employee::getSalary)
+                        .thenComparing(Employee::getName)
+                        .thenComparing(Employee::getId))
+                .forEach(System.out::println);
+
+        System.out.println("----------------------------------");
+
         List<Employee> copyEmployee = new ArrayList<>(employees);
         long count1 = copyEmployee.stream().filter(item -> item.getSalary() == 10000.0).count();
         System.out.println("count" + count1);
