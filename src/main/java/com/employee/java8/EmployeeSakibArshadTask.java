@@ -13,6 +13,9 @@ public class EmployeeSakibArshadTask {
 
     private BigDecimal salary;
 
+    public EmployeeSakibArshadTask() {
+    }
+
     public EmployeeSakibArshadTask(int id, String name, LocalDate dob, BigDecimal salary) {
         this.id = id;
         this.name = name;

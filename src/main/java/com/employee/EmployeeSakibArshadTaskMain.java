@@ -11,7 +11,7 @@ public class EmployeeSakibArshadTaskMain {
 
     public static void main(String[] args) {
         List<EmployeeSakibArshadTask> employeeData = EmployeeSakibArshadTaskMain.findAllData();
-
+        System.out.println();
         employeeData.forEach(System.out::println);
     }
 
